@@ -1,12 +1,14 @@
 <?php
 if (isset($_POST['send'])
-	&& $_POST[sendername] !="" && $_POST[contactno] !="" 
-&& $_POST[senderemail] !="" && $_POST[user_message] !=""){
+	&& $_POST[senderName] !="" && $_POST[contactno] !="" 
+&& $_POST[senderEmail] !="" && $_POST[user_message] !="")
+
+{
 	$to = 'adarshprabhu@gmail.com';
 	$subject = 'New Message from cwd.co.mz';
-	$message .= 'Sender Name: ' . $_POST['sendername'] . "\r\n\r\n";
+	$message .= 'Sender Name: ' . $_POST['senderName'] . "\r\n\r\n";
 	$message .= 'Contact: ' . $_POST['contactno'] . "\r\n\r\n";
-	$message .= 'Email: ' . $_POST['senderemail'] . "\r\n\r\n";
+	$message .= 'Email: ' . $_POST['senderEmail'] . "\r\n\r\n";
 	$message .= 'Comments: ' . $_POST['user_message'];
 	
 	
@@ -15,7 +17,7 @@ if (isset($_POST['send'])
 	}
 ?>
 
-<!doctype html>
+<!DOCTYPE html>
 
 <html>
 
@@ -45,20 +47,18 @@ if (isset($_POST['send'])
 			<h2>Message</h2>
 			<?php if (isset($success) && $success) {?>
 			<img src="assets/confirm.svg" alt="Receipt Confirmed" class="smallIcon">
-			<h3 class="blue">Your  message was sent successfully</h3>
+			<h3 class="blue"> Your  message was sent successfully</h3>
 				<p>We will endeavour to respond to you as soon as possible. Thank you for your interest.</p>
 			<?php }
-			else { ?>
+				else { ?>
 			<img src="assets/deny.svg" alt="Message Unsuccessful" class="smallIcon">
-			<h3 class="blue">Your message could not be sent</h3>
+			<h3 class="blue"> Your message could not be sent</h3>
 				<p>We were not able to process your details.</p> 
 				<p>Please make sure you fill in all the fields. If you continue to experience issues, you may contact us via through phone</p>
-			}
+			<?php } ?>
 			
 			
-			
-			
-			<p>If you are interested in any of our services, you may contact us via the details or form below.</p>
+				<p>If you are interested in any of our services, you may contact us via the details or form below.</p>
 				<img src="assets/address.svg" class="smallIcon" alt="Map"><p class="indented">Opening hours: 8:30am - 5:30pm</br>
 				Level 1, 1028 Avenida Guerra Popular, </br>
 				Maputo, Mozambique
@@ -73,12 +73,12 @@ if (isset($_POST['send'])
 				
 			<h3 class="blue">Send us a message</h3>
 				
-			<form method=POST action="acknowledge.php">
+			<form method="POST" action="acknowledge.php">
 				<label for="name"><p class="label">Contact Name</p></label>
-				<input type="text" name="senderName" id="sendername">
+				<input type="text" name="senderName" id="name">
 				
 				<label for="email"><p class="label">E-mail Address</p></label>
-				<input type="text" name="senderEmail" id="senderEmail">
+				<input type="text" name="senderEmail" id="email">
 				
 				<label for="contactno"><p class="label">Contact Number</p></label>
 				<input type="text" name="contactno" id="contactno">
@@ -106,7 +106,7 @@ if (isset($_POST['send'])
 					<li><a href="linkedin.com"><img src="assets/linkedin.png" class="socialIcons" alt="Visit us on LinkedIn"></a></li>
 				</ul>
 				</footer>
-			</div>
+		</div>
 				
 				
 	</body>
